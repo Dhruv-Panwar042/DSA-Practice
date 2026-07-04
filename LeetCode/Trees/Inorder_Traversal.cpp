@@ -1,11 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Problem: Binary Tree Preorder Traversal
-// Link: https://leetcode.com/problems/binary-tree-preorder-traversal/
-// Difficulty: Easy
 
-// Definition for a binary tree node
 struct TreeNode {
     int val;
     TreeNode *left;
