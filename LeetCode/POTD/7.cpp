@@ -1,19 +1,20 @@
 class Solution {
 public:
-    vector<int> findMissingElements(vector<int>& nums) {
+    int smallestNumber(int n, int t) {
+        while(true) {
+            int x = n;
+            int product = 1;
 
-        sort(nums.begin(), nums.end());
-
-        vector<int> ans;
-
-        for (int i = 0; i < nums.size() - 1; i++) {
-
-            
-            for (int x = nums[i] + 1; x < nums[i + 1]; x++) {
-                ans.push_back(x);
+            while(x > 0) {
+                product *= (x % 10);
+                x /= 10;
             }
+
+            if(product % t == 0)
+                return n;
+
+            n++;
         }
 
-        return ans;
     }
 };
