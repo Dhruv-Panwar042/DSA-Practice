@@ -1,20 +1,25 @@
 class Solution {
 public:
-    int smallestNumber(int n, int t) {
-        while(true) {
-            int x = n;
-            int productt = 1;
+    bool solve(int n, vector<int>& dp) {
+        if(n == 0)
+            return false;
 
-            while(x > 0) {
-                productt *= (x % 10);
-                x /= 10;
+        if(dp[n] != -1)
+            return dp[n];
+
+        for(int i = 1; i * i <= n; i++) {
+            int square = i * i;
+
+            if(solve(n - square, dp) == false) {
+                return dp[n] = true;
             }
-
-            if(productt % t == 0)
-                return n;
-
-            n++;
         }
 
+        return dp[n] = false;
+    }
+    bool winnerSquareGame(int n) {
+        vector<int> dp(n + 1, -1);
+
+        return solve(n, dp);
     }
 };
